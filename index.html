@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelPlay Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>🎮 PixelPlay Arcade</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Relive the Retro Vibes 🎉</h2>
+    <p>Play the classics. Discover the future of indie gaming.</p>
+    <button onclick="scrollToSection()">Explore Games</button>
+  </section>
+
+  <section class="featured" id="featured">
+    <h3>🔥 Game of the Week</h3>
+    <div class="game-card">
+      <img src="images/game1.gif" alt="Game of the Week" />
+      <div class="game-info">
+        <h4>Neon Blaster 1989</h4>
+        <p>Battle alien invaders in this pixel-perfect side scroller with a synthwave soundtrack.</p>
+        <a href="games.html">Play Now</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 PixelPlay Arcade. Built with ❤️ and pixels.</p>
+  </footer>
+
+  <script>
+    function scrollToSection() {
+      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
