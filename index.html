@@ -2,12 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PixelPlay Arcade</title>
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0d0221;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Retro grid background with motion */
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        linear-gradient(#1a002e 2px, transparent 2px),
+        linear-gradient(90deg, #1a002e 2px, transparent 2px),
+        radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
+      background-size: 40px 40px, 40px 40px, 100% 100%;
+      animation: moveGrid 30s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0, 0 0, center; }
+      100% { background-position: 400px 400px, 400px 400px, center; }
+    }
+
+    header {
+      background-color: #1a002e;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #ff00cc;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #00ffff;
+      text-shadow: 0 0 8px #ff00cc;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    nav ul li {
+      margin: 10px 15px;
+    }
+
+    nav ul a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background-color: transparent;
+      border: 2px solid #ff00cc;
+      transition: all 0.3s ease;
+    }
+
+    nav ul a:hover,
+    nav ul a.active {
+      background-color: #ff00cc;
+      color: #000;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #1a002e, #220033);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero-text h2 {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    .hero-text p {
+      color: #eee;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #fff;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff00cc;
+      color: #fff;
+      border-color: #ff00cc;
+    }
+
+    .featured {
+      padding: 60px 20px;
+      background-color: #12001a;
+      text-align: center;
+    }
+
+    .featured h3 {
+      color: #ffcc00;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #ffcc00;
+    }
+
+    .game-card {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      background: #1a002e;
+      border: 3px solid #00ffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ffff80;
+    }
+
+    .game-card img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .game-info {
+      flex: 1;
+      text-align: left;
+    }
+
+    .game-info h4 {
+      color: #ff00cc;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .game-info p {
+      font-size: 0.8rem;
+      color: #ddd;
+    }
+
+    .btn-small {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 12px;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-small:hover {
+      background-color: #ff00cc;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #1a002e;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.7rem;
+      color: #bbb;
+      border-top: 2px solid #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .game-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .game-card img {
+        margin: 0 0 20px 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <div class="background-animation"></div>
+
   <header>
     <h1>🎮 PixelPlay Arcade</h1>
     <nav>
@@ -22,31 +224,28 @@
   </header>
 
   <section class="hero">
-    <h2>Relive the Retro Vibes 🎉</h2>
-    <p>Play the classics. Discover the future of indie gaming.</p>
-    <button onclick="scrollToSection()">Explore Games</button>
+    <div class="hero-text">
+      <h2>Step Into the Retro Zone</h2>
+      <p>Blast through classic pixels and neon nostalgia. New games added weekly!</p>
+      <a href="#featured" class="btn">Explore Games</a>
+    </div>
   </section>
 
   <section class="featured" id="featured">
     <h3>🔥 Game of the Week</h3>
     <div class="game-card">
-      <img src="images/game1.gif" alt="Game of the Week" />
+      <img src="images/game1.gif" alt="Neon Blaster 1989" />
       <div class="game-info">
         <h4>Neon Blaster 1989</h4>
-        <p>Battle alien invaders in this pixel-perfect side scroller with a synthwave soundtrack.</p>
-        <a href="games.html">Play Now</a>
+        <p>Fight through alien waves in this retro neon shooter with synthwave vibes.</p>
+        <a href="games.html" class="btn-small">Play Now</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 PixelPlay Arcade. Built with ❤️ and pixels.</p>
+    <p>&copy; 2025 PixelPlay Arcade. Powered by passion & pixels.</p>
   </footer>
 
-  <script>
-    function scrollToSection() {
-      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
