@@ -229,6 +229,55 @@
       popup.classList.add("show"); // Show the popup message
       setTimeout(function() {
         popup.classList.remove("show"); // Hide the popup after 3 seconds
+        form.reset(); // Clear the form fields after the popup is hidden
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Player 1" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="favGame">Favorite Game:</label>
+      <select id="favGame" name="favGame" required>
+        <option value="">Select One</option>
+        <option value="FIFA 07">FIFA 07</option>
+        <option value="Tekken 3">Tekken 3</option>
+        <option value="Dragon Ball Z">Dragon Ball Z</option>
+        <option value="Pac-Man">Pac-Man</option>
+        <option value="Street Fighter II">Street Fighter II</option>
+      </select>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Let us know what you think!" required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <div class="popup" id="popupMessage">
+    <p>Thank you for your feedback!</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 PixelPlay Arcade. Powered by retro vibes and your support!</p>
+  </footer>
+
+  <script>
+    // Handle form submission
+    const form = document.getElementById("feedback-form");
+    const popup = document.getElementById("popupMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+      popup.classList.add("show"); // Show the popup message
+      setTimeout(function() {
+        popup.classList.remove("show"); // Hide the popup after 3 seconds
       }, 3000);
     });
   </script>
