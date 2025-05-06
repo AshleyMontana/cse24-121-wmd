@@ -124,36 +124,55 @@
       text-align: center;
     }
 
-    /* Lightbox Modal */
+    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
-      overflow: auto;
-      padding-top: 60px;
+      justify-content: center;
+      align-items: center;
     }
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 80%;
-      height: auto;
-    }
-    .modal-content:hover {
-      cursor: zoom-out;
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
     }
     .close {
       position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: #ffcc00;
       cursor: pointer;
+    }
+
+    /* Videos Section */
+    .videos-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .video-card {
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffff40;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 20px #ff00cc80;
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      display: block;
     }
 
     /* Footer */
@@ -190,68 +209,72 @@
   <!-- Screenshots Gallery -->
   <h2 class="section-title">Screenshots Gallery</h2>
   <section class="screenshots-grid">
-    <div class="screenshot-card" onclick="openModal('img1')">
-      <img src="https://i.postimg.cc/MHL5yf7s/neon.jpg" alt="Neon Blaster gameplay">
-      <div class="caption">Neon Blaster 1989</div>
+    <div class="screenshot-card">
+      <a href="#" onclick="openModal('https://i.postimg.cc/MHL5yf7s/neon.jpg')">
+        <img src="https://i.postimg.cc/MHL5yf7s/neon.jpg" alt="Neon Blaster gameplay">
+        <div class="caption">Neon Blaster 1989</div>
+      </a>
     </div>
-    <div class="screenshot-card" onclick="openModal('img2')">
-      <img src="https://i.postimg.cc/VsZKypxj/fifa07.jpg" alt="FIFA 07 gameplay">
-      <div class="caption">FIFA 07</div>
+    <div class="screenshot-card">
+      <a href="#" onclick="openModal('https://i.postimg.cc/VsZKypxj/fifa07.jpg')">
+        <img src="https://i.postimg.cc/VsZKypxj/fifa07.jpg" alt="FIFA 07 gameplay">
+        <div class="caption">FIFA 07</div>
+      </a>
     </div>
-    <div class="screenshot-card" onclick="openModal('img3')">
-      <img src="https://i.postimg.cc/vH13GXyC/taken-3.jpg" alt="Tekken 3 battle scene">
-      <div class="caption">Tekken 3</div>
+    <div class="screenshot-card">
+      <a href="#" onclick="openModal('https://i.postimg.cc/vH13GXyC/taken-3.jpg')">
+        <img src="https://i.postimg.cc/vH13GXyC/taken-3.jpg" alt="Tekken 3 battle scene">
+        <div class="caption">Tekken 3</div>
+      </a>
     </div>
-    <div class="screenshot-card" onclick="openModal('img4')">
-      <img src="https://i.postimg.cc/qM9QqnMq/dragon-ball.jpg" alt="Dragon Ball action">
-      <div class="caption">Dragon Ball Z</div>
+    <div class="screenshot-card">
+      <a href="#" onclick="openModal('https://i.postimg.cc/qM9QqnMq/dragon-ball.jpg')">
+        <img src="https://i.postimg.cc/qM9QqnMq/dragon-ball.jpg" alt="Dragon Ball action">
+        <div class="caption">Dragon Ball Z</div>
+      </a>
     </div>
-    <div class="screenshot-card" onclick="openModal('img5')">
-      <img src="https://i.postimg.cc/BvCCmV5P/mario.jpg" alt="Mario Kart racing">
-      <div class="caption">Mario Kart 64</div>
+    <div class="screenshot-card">
+      <a href="#" onclick="openModal('https://i.postimg.cc/BvCCmV5P/mario.jpg')">
+        <img src="https://i.postimg.cc/BvCCmV5P/mario.jpg" alt="Mario Kart racing">
+        <div class="caption">Mario Kart 64</div>
+      </a>
     </div>
   </section>
 
-  <!-- Modal for Lightbox Images -->
-  <div id="img1" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" src="https://i.postimg.cc/MHL5yf7s/neon.jpg" alt="Neon Blaster Full">
+  <!-- Modal to display image -->
+  <div class="modal" id="imageModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Full Screen Image">
   </div>
-  <div id="img2" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" src="https://i.postimg.cc/VsZKypxj/fifa07.jpg" alt="FIFA 07 Full">
-  </div>
-  <div id="img3" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" src="https://i.postimg.cc/vH13GXyC/taken-3.jpg" alt="Tekken 3 Full">
-  </div>
-  <div id="img4" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" src="https://i.postimg.cc/qM9QqnMq/dragon-ball.jpg" alt="Dragon Ball Z Full">
-  </div>
-  <div id="img5" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" src="https://i.postimg.cc/BvCCmV5P/mario.jpg" alt="Mario Kart 64 Full">
-  </div>
+
+  <!-- Embedded Videos -->
+  <h2 class="section-title">Gameplay Videos</h2>
+  <section class="videos-container">
+    <div class="video-card" onclick="window.open('https://www.youtube.com/shorts/hWgvElpS1Nw', '_blank')">
+      <iframe src="https://www.youtube.com/embed/hWgvElpS1Nw" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/hWgvElpS1Nw" allowfullscreen></iframe>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 PixelPlay Arcade. Relive the classics with a neon twist!</p>
   </footer>
 
   <script>
-    function openModal(imgId) {
-      var modal = document.getElementById(imgId);
-      modal.style.display = "block";
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modal.style.display = 'flex';
+      modalImage.src = imageSrc;
     }
 
     function closeModal() {
-      var modals = document.querySelectorAll('.modal');
-      modals.forEach(function(modal) {
-        modal.style.display = "none";
-      });
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
     }
   </script>
 
 </body>
 </html>
-
