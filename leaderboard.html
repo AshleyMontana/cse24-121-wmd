@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard - PixelPlay Arcade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0d0221;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        linear-gradient(#1a002e 2px, transparent 2px),
+        linear-gradient(90deg, #1a002e 2px, transparent 2px),
+        radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
+      background-size: 40px 40px, 40px 40px, 100% 100%;
+      animation: moveGrid 30s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0, 0 0, center; }
+      100% { background-position: 400px 400px, 400px 400px, center; }
+    }
+
+    header {
+      background-color: #1a002e;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #ff00cc;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 8px #ff00cc;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    nav ul li {
+      margin: 10px 15px;
+    }
+
+    nav ul a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 2px solid #ff00cc;
+      transition: all 0.3s ease;
+    }
+
+    nav ul a:hover,
+    nav ul a.active {
+      background-color: #ff00cc;
+      color: #000;
+    }
+
+    .leaderboard {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: rgba(26, 0, 46, 0.9);
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00ffff50;
+      padding: 30px;
+    }
+
+    .leaderboard h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 6px #ffcc00;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+
+    th, td {
+      border: 2px solid #00ffff;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #0f011a;
+      color: #00ffff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #1f0030;
+    }
+
+    tr:hover {
+      background-color: #290040;
+    }
+
+    footer {
+      background-color: #1a002e;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.7rem;
+      color: #bbb;
+      border-top: 2px solid #00ffff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-animation"></div>
+
+  <header>
+    <h1>🎮 PixelPlay Arcade</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="leaderboard">
+    <h2>🏆 Top 10 Pixel Players</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+          <th>Game</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>RetroKing</td><td>9850</td><td>Neon Blaster</td></tr>
+        <tr><td>2</td><td>PixelQueen</td><td>9310</td><td>FIFA 07</td></tr>
+        <tr><td>3</td><td>DragonZap</td><td>9020</td><td>Dragon Ball Z</td></tr>
+        <tr><td>4</td><td>TekkenBro</td><td>8900</td><td>Tekken 3</td></tr>
+        <tr><td>5</td><td>ArcadeGuru</td><td>8600</td><td>Street Fighter II</td></tr>
+        <tr><td>6</td><td>PacMaster</td><td>8340</td><td>Pac-Man</td></tr>
+        <tr><td>7</td><td>SynthRunner</td><td>8120</td><td>Neon Blaster</td></tr>
+        <tr><td>8</td><td>ButtonMasher</td><td>7900</td><td>Tekken 3</td></tr>
+        <tr><td>9</td><td>BlastGirl</td><td>7620</td><td>Dragon Ball Z</td></tr>
+        <tr><td>10</td><td>PixelNinja</td><td>7400</td><td>Street Fighter II</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 PixelPlay Arcade. Stay retro, stay ranked!</p>
+  </footer>
+
+</body>
+</html>
