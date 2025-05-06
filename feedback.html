@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback - PixelPlay Arcade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <style>
+    /* Base Reset and Theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0d0221;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        linear-gradient(#1a002e 2px, transparent 2px),
+        linear-gradient(90deg, #1a002e 2px, transparent 2px),
+        radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
+      background-size: 40px 40px, 40px 40px, 100% 100%;
+      animation: moveGrid 30s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveGrid {
+      0% { background-position: 0 0, 0 0, center; }
+      100% { background-position: 400px 400px, 400px 400px, center; }
+    }
+
+    /* Header */
+    header {
+      background-color: #1a002e;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #ff00cc;
+    }
+    header h1 {
+      color: #00ffff;
+      font-size: 1.5rem;
+      text-shadow: 0 0 8px #ff00cc;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    nav ul li {
+      margin: 10px 15px;
+    }
+    nav ul a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 2px solid #ff00cc;
+      transition: all 0.3s ease;
+    }
+    nav ul a:hover,
+    nav ul a.active {
+      background-color: #ff00cc;
+      color: #000;
+    }
+
+    /* Form Section */
+    .feedback-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: rgba(26, 0, 46, 0.9);
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00ffff50;
+    }
+
+    .feedback-section h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .feedback-section form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feedback-section label {
+      font-size: 0.7rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .feedback-section input,
+    .feedback-section textarea,
+    .feedback-section select {
+      background-color: #0f011a;
+      border: 2px solid #00ffff;
+      padding: 10px;
+      color: #fff;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    .feedback-section input:focus,
+    .feedback-section textarea:focus,
+    .feedback-section select:focus {
+      border-color: #ff00cc;
+      outline: none;
+    }
+
+    .feedback-section button {
+      background-color: #ff00cc;
+      color: #000;
+      padding: 10px;
+      border: none;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feedback-section button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff00cc80;
+    }
+
+    footer {
+      background-color: #1a002e;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.7rem;
+      color: #bbb;
+      border-top: 2px solid #00ffff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-animation"></div>
+
+  <header>
+    <h1>🎮 PixelPlay Arcade</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="feedback-section">
+    <h2>📝 We Value Your Feedback!</h2>
+    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Player 1" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="favGame">Favorite Game:</label>
+      <select id="favGame" name="favGame" required>
+        <option value="">Select One</option>
+        <option value="FIFA 07">FIFA 07</option>
+        <option value="Tekken 3">Tekken 3</option>
+        <option value="Dragon Ball Z">Dragon Ball Z</option>
+        <option value="Pac-Man">Pac-Man</option>
+        <option value="Street Fighter II">Street Fighter II</option>
+      </select>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Let us know what you think!" required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 PixelPlay Arcade. Powered by retro vibes and your support!</p>
+  </footer>
+
+</body>
+</html>
