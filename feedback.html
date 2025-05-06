@@ -140,14 +140,31 @@
       box-shadow: 0 0 10px #ff00cc80;
     }
 
-    footer {
-      background-color: #1a002e;
-      text-align: center;
+    /* Popup Styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      font-size: 1.5rem;
+      font-family: 'Press Start 2P', monospace;
       padding: 20px;
-      font-size: 0.7rem;
-      color: #bbb;
-      border-top: 2px solid #00ffff;
-      margin-top: 40px;
+      border-radius: 12px;
+      border: 3px solid #ff00cc;
+      display: none;
+      box-shadow: 0 0 20px #ff00cc;
+      text-align: center;
+      z-index: 1000;
+    }
+    .popup.show {
+      display: block;
+    }
+    .popup p {
+      color: #ff00cc;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px #ff00cc;
     }
   </style>
 </head>
@@ -170,7 +187,7 @@
 
   <section class="feedback-section">
     <h2>📝 We Value Your Feedback!</h2>
-    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+    <form id="feedback-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Player 1" required>
 
@@ -194,9 +211,27 @@
     </form>
   </section>
 
+  <div class="popup" id="popupMessage">
+    <p>Thank you for your feedback!</p>
+  </div>
+
   <footer>
     <p>&copy; 2025 PixelPlay Arcade. Powered by retro vibes and your support!</p>
   </footer>
+
+  <script>
+    // Handle form submission
+    const form = document.getElementById("feedback-form");
+    const popup = document.getElementById("popupMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+      popup.classList.add("show"); // Show the popup message
+      setTimeout(function() {
+        popup.classList.remove("show"); // Hide the popup after 3 seconds
+      }, 3000);
+    });
+  </script>
 
 </body>
 </html>
