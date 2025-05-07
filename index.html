@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PixelPlay Arcade</title>
+  <title>PixelPlay Arcade</title> 
+
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -20,7 +21,6 @@
       position: relative;
     }
 
-    /* Retro grid background with motion */
     .background-animation {
       position: fixed;
       top: 0; left: 0;
@@ -133,13 +133,13 @@
     .game-card {
       max-width: 900px;
       margin: auto;
-      display: flex;
-      flex-wrap: wrap;
       background: #1a002e;
       border: 3px solid #00ffff;
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 0 20px #00ffff80;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .game-card img {
@@ -165,20 +165,12 @@
       color: #ddd;
     }
 
-    .btn-small {
-      display: inline-block;
+    .game-info iframe {
+      width: 100%;
+      height: 400px;
       margin-top: 15px;
-      padding: 8px 12px;
-      background-color: #00ffff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    .btn-small:hover {
-      background-color: #ff00cc;
-      color: #fff;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
     }
 
     footer {
@@ -188,6 +180,7 @@
       font-size: 0.7rem;
       color: #bbb;
       border-top: 2px solid #00ffff;
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
@@ -212,19 +205,17 @@
 
   <header>
     <h1>🎮 PixelPlay Arcade</h1>
-   <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="games.html">Games</a></li>
-    <li><a href="media.html">Media</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="feedback.html">Feedback</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="leaderboard.html">Leaderboard</a></li>
-  </ul>
-</nav>
-
-
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="hero">
@@ -232,7 +223,6 @@
       <h2>Step Into the Retro Zone</h2>
       <p>Blast through classic pixels and neon nostalgia. New games added weekly!</p>
       <a href="games.html" class="btn">Explore Games</a>
-
     </div>
   </section>
 
@@ -243,7 +233,7 @@
       <div class="game-info">
         <h4>Neon Blaster 1989</h4>
         <p>Fight through alien waves in this retro neon shooter with synthwave vibes.</p>
-        <a href="games.html" class="btn-small">Play Now</a>
+        <iframe src="games/neon-blaster.html" allowfullscreen></iframe>
       </div>
     </div>
   </section>
