@@ -21,7 +21,8 @@
 
     .background-animation {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       background:
@@ -111,6 +112,17 @@
       border-top: 2px solid #00ffff;
       margin-top: 40px;
     }
+
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      color: #ff00cc;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -120,17 +132,16 @@
   <header>
     <h1>🎮 PixelPlay Arcade</h1>
     <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="games.html">Games</a></li>
-    <li><a href="media.html">Media</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="feedback.html">Feedback</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="leaderboard.html">Leaderboard</a></li>
-  </ul>
-</nav>
-
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="about-section">
@@ -142,6 +153,11 @@
 
   <footer>
     <p>&copy; 2025 PixelPlay Arcade. Powered by passion & pixels.</p>
+    <p>
+      <a href="mailto:contact@pixelplayarcade.com">Contact Us</a> |
+      <a href="https://github.com/yourusername/ABC19-001" target="_blank">GitHub</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
   </footer>
 
 </body>
